@@ -27,25 +27,49 @@
 <Square>
 	<fmt>SQ{{Square_ID}}</fmt>
 	<General>
-			<Square_ID f="id autonum nocertainty"/>
-			<Width f="nocertainty noannotation" b="decimal"/>
-			<Start_Line t="button"/>
-			<gps f="notnull"/>
-			<Stop_Line t="button"/>
-			<!--<gps f="notnull"/>-->
+		<Square_ID f="id autonum nocertainty"/>
+		<Width f="nocertainty noannotation" b="decimal"/>
+		<Start_Line t="button"/>
+		<Northing1 b="decimal"/>
+		<Easting1 b="decimal"/>
+		<Stop_Line t="button"/>
+		<Northing2 b="decimal"/>
+		<Easting2 b="decimal"/>
 	</General>
 </Square>
 
 <logic><![CDATA[
-<!--@SOURCE: logic/sync.bsh-->
-<!--@SOURCE: logic/gis-shared.bsh-->
-<!--@SOURCE: logic/custom-search.bsh-->
-<!--@SOURCE: logic/recent-records.bsh-->
-<!--@SOURCE: logic/cascade-delete.bsh-->
-<!--@SOURCE: logic/find-in-map.bsh-->
-<!--@SOURCE: logic/autonumbering-validation.bsh-->
-<!--@SOURCE: logic/new-record-in-boundary.bsh-->
-<!--@SOURCE: logic/leave-gps-verification.bsh-->
+
+addOnEvent("Square/General/Start_Line", "click", "buttonPress1()");
+
+void buttonPress1(){
+	Object projPosition = getGPSPositionProjected();
+	Double northing1 = projPosition.getLatitude();
+	Double easting1 = projPosition.getLongitude();
+	
+	String sNorthing1    = "" + northing1;
+	String sEasting1     = "" + easting1;
+	
+	Map tabgroupToTabRef = getTakeFromGpsMappings();
+	setFieldValue("Square/General/Easting1",   sEasting1);
+	setFieldValue("Square/General/Northing1",  sNorthing1);
+}
+
+addOnEvent("Square/General/Stop_Line", "click", "buttonPress2()");
+
+void buttonPress2(){
+	Object projPosition = getGPSPositionProjected();
+	Double northing2 = projPosition.getLatitude();
+	Double easting2 = projPosition.getLongitude();
+	
+	String sNorthing2    = "" + northing2;
+	String sEasting2     = "" + easting2;
+	
+	setFieldValue("Square/General/Easting2",   sEasting2);
+	setFieldValue("Square/General/Northing2",  sNorthing2);
+}
+
+
 ]]></logic>
 
 </module>

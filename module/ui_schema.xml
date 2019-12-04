@@ -47,7 +47,6 @@
             <General>
               <Square_ID/>
               <Width/>
-              <Start_Line/>
               <Colgroup_1>
                 <Col_1>
                   <Latitude/>
@@ -68,13 +67,22 @@
                 </Col_3>
               </Colgroup_2>
               <Take_From_GPS_1/>
+              <Start_Line/>
+              <Northing1/>
+              <Easting1/>
               <Stop_Line/>
+              <Northing2/>
+              <Easting2/>
             </General>
           </Square>
         </faims>
       </instance>
       <bind nodeset="/faims/Control/Autonumbering/Next_Square_ID" type="decimal"/>
       <bind nodeset="/faims/Square/General/Width" type="decimal"/>
+      <bind nodeset="/faims/Square/General/Northing1" type="decimal"/>
+      <bind nodeset="/faims/Square/General/Easting1" type="decimal"/>
+      <bind nodeset="/faims/Square/General/Northing2" type="decimal"/>
+      <bind nodeset="/faims/Square/General/Easting2" type="decimal"/>
     </model>
   </h:head>
   <h:body>
@@ -167,9 +175,6 @@
         <input faims_attribute_name="Width" faims_attribute_type="measure" ref="Width" faims_annotation="false" faims_certainty="false">
           <label>{Width}</label>
         </input>
-        <trigger ref="Start_Line">
-          <label>{Start_Line}</label>
-        </trigger>
         <group ref="Colgroup_1" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
@@ -209,9 +214,24 @@
         <trigger ref="Take_From_GPS_1">
           <label>{Take_From_GPS}</label>
         </trigger>
+        <trigger ref="Start_Line">
+          <label>{Start_Line}</label>
+        </trigger>
+        <input faims_attribute_name="Northing1" faims_attribute_type="measure" ref="Northing1">
+          <label>{Northing1}</label>
+        </input>
+        <input faims_attribute_name="Easting1" faims_attribute_type="measure" ref="Easting1">
+          <label>{Easting1}</label>
+        </input>
         <trigger ref="Stop_Line">
           <label>{Stop_Line}</label>
         </trigger>
+        <input faims_attribute_name="Northing2" faims_attribute_type="measure" ref="Northing2">
+          <label>{Northing2}</label>
+        </input>
+        <input faims_attribute_name="Easting2" faims_attribute_type="measure" ref="Easting2">
+          <label>{Easting2}</label>
+        </input>
       </group>
     </group>
   </h:body>
