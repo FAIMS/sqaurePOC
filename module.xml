@@ -1,12 +1,42 @@
 <module>
+<User_List f="nodata">
+  <User_List f="noscroll">
+    <User_List t="list" f="nolabel user" l="Control"/>
+  </User_List>
+</User_List>
 
-	<square>
-		<Width f="nocertainty noannotation"/>
-		<Start_Line t="button"/>
-		<gps f="notnull"/>
-		<Stop_Line t="button"/>
-		<gps f="notnull"/>
-	</square>
+<Control f="nodata">
+	<Control f="noscroll">
+
+		<New_Square t="button" l="Square"/>
+
+ 		<GPS_diagnostics t="gpsdiag"/>
+
+	</Control>
+
+	<search/>
+	<!--"Select User" dropdown has been added using @POSTPROC-->
+
+
+	<Autonumbering>
+		<autonum/>
+	</Autonumbering>
+
+</Control>
+
+<Square>
+	<fmt>SQ{{Square_ID}}</fmt>
+	<General>
+			<Square_ID f="id autonum nocertainty"/>
+			<Width f="nocertainty noannotation"/>
+			<Start_Line/>
+			<!--<Start_Line t="button"/>-->
+			<gps f="notnull"/>
+			<Stop_Line/>
+			<!--<Stop_Line t="button"/>
+			<gps f="notnull"/>-->
+	</General>
+</Square>
 
 <logic><![CDATA[
 <!--@SOURCE: logic/sync.bsh-->
