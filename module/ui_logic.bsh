@@ -323,14 +323,14 @@ REF_TO_TYPE.put("Control/Search/Entity_List", "list");
 REF_TO_TYPE.put("Control/Autonumbering/Next_Square_ID", "input");
 REF_TO_TYPE.put("Square/General/Square_ID", "input");
 REF_TO_TYPE.put("Square/General/Width", "input");
-REF_TO_TYPE.put("Square/General/Start_Line", "input");
+REF_TO_TYPE.put("Square/General/Start_Line", "button");
 REF_TO_TYPE.put("Square/General/Latitude", "input");
 REF_TO_TYPE.put("Square/General/Longitude", "input");
 REF_TO_TYPE.put("Square/General/Northing", "input");
 REF_TO_TYPE.put("Square/General/Easting", "input");
 REF_TO_TYPE.put("Square/General/Accuracy", "input");
 REF_TO_TYPE.put("Square/General/Take_From_GPS_1", "button");
-REF_TO_TYPE.put("Square/General/Stop_Line", "input");
+REF_TO_TYPE.put("Square/General/Stop_Line", "button");
 REF_TO_TYPE.put("User_List/User_List", "tab");
 REF_TO_TYPE.put("Control/Control", "tab");
 REF_TO_TYPE.put("Control/Search", "tab");
@@ -339,13 +339,11 @@ REF_TO_TYPE.put("Square/General", "tab");
 
 DATA_REFS.add("Square/General/Square_ID");
 DATA_REFS.add("Square/General/Width");
-DATA_REFS.add("Square/General/Start_Line");
 DATA_REFS.add("Square/General/Latitude");
 DATA_REFS.add("Square/General/Longitude");
 DATA_REFS.add("Square/General/Northing");
 DATA_REFS.add("Square/General/Easting");
 DATA_REFS.add("Square/General/Accuracy");
-DATA_REFS.add("Square/General/Stop_Line");
 
 
 

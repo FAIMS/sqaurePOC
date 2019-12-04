@@ -74,6 +74,7 @@
         </faims>
       </instance>
       <bind nodeset="/faims/Control/Autonumbering/Next_Square_ID" type="decimal"/>
+      <bind nodeset="/faims/Square/General/Width" type="decimal"/>
     </model>
   </h:head>
   <h:body>
@@ -166,9 +167,9 @@
         <input faims_attribute_name="Width" faims_attribute_type="measure" ref="Width" faims_annotation="false" faims_certainty="false">
           <label>{Width}</label>
         </input>
-        <input faims_attribute_name="Start Line" faims_attribute_type="measure" ref="Start_Line">
+        <trigger ref="Start_Line">
           <label>{Start_Line}</label>
-        </input>
+        </trigger>
         <group ref="Colgroup_1" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
@@ -208,9 +209,9 @@
         <trigger ref="Take_From_GPS_1">
           <label>{Take_From_GPS}</label>
         </trigger>
-        <input faims_attribute_name="Stop Line" faims_attribute_type="measure" ref="Stop_Line">
+        <trigger ref="Stop_Line">
           <label>{Stop_Line}</label>
-        </input>
+        </trigger>
       </group>
     </group>
   </h:body>
