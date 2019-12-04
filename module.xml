@@ -1,5 +1,23 @@
 <module>
 
-	
+	<square>
+		<Width f="nocertainty noannotation"/>
+		<Start_Line t="button"/>
+		<gps f="notnull"/>
+		<Stop_Line t="button"/>
+		<gps f="notnull"/>
+	</square>
+
+<logic><![CDATA[
+<!--@SOURCE: logic/sync.bsh-->
+<!--@SOURCE: logic/gis-shared.bsh-->
+<!--@SOURCE: logic/custom-search.bsh-->
+<!--@SOURCE: logic/recent-records.bsh-->
+<!--@SOURCE: logic/cascade-delete.bsh-->
+<!--@SOURCE: logic/find-in-map.bsh-->
+<!--@SOURCE: logic/autonumbering-validation.bsh-->
+<!--@SOURCE: logic/new-record-in-boundary.bsh-->
+<!--@SOURCE: logic/leave-gps-verification.bsh-->
+]]></logic>
 
 </module>
