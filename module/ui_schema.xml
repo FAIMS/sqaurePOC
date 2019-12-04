@@ -47,26 +47,6 @@
             <General>
               <Square_ID/>
               <Width/>
-              <Colgroup_1>
-                <Col_1>
-                  <Latitude/>
-                </Col_1>
-                <Col_2>
-                  <Longitude/>
-                </Col_2>
-              </Colgroup_1>
-              <Colgroup_2>
-                <Col_1>
-                  <Northing/>
-                </Col_1>
-                <Col_2>
-                  <Easting/>
-                </Col_2>
-                <Col_3>
-                  <Accuracy/>
-                </Col_3>
-              </Colgroup_2>
-              <Take_From_GPS_1/>
               <Start_Line/>
               <Northing1/>
               <Easting1/>
@@ -175,45 +155,6 @@
         <input faims_attribute_name="Width" faims_attribute_type="measure" ref="Width" faims_annotation="false" faims_certainty="false">
           <label>{Width}</label>
         </input>
-        <group ref="Colgroup_1" faims_style="orientation">
-          <label/>
-          <group ref="Col_1" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Latitude" faims_attribute_type="measure" ref="Latitude" faims_style_class="required" faims_read_only="true">
-              <label>{Latitude}</label>
-            </input>
-          </group>
-          <group ref="Col_2" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Longitude" faims_attribute_type="measure" ref="Longitude" faims_style_class="required" faims_read_only="true">
-              <label>{Longitude}</label>
-            </input>
-          </group>
-        </group>
-        <group ref="Colgroup_2" faims_style="orientation">
-          <label/>
-          <group ref="Col_1" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Northing" faims_attribute_type="measure" ref="Northing" faims_style_class="required" faims_read_only="true">
-              <label>{Northing}</label>
-            </input>
-          </group>
-          <group ref="Col_2" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Easting" faims_attribute_type="measure" ref="Easting" faims_style_class="required" faims_read_only="true">
-              <label>{Easting}</label>
-            </input>
-          </group>
-          <group ref="Col_3" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Accuracy" faims_attribute_type="measure" ref="Accuracy" faims_style_class="required" faims_read_only="true">
-              <label>{Accuracy}</label>
-            </input>
-          </group>
-        </group>
-        <trigger ref="Take_From_GPS_1">
-          <label>{Take_From_GPS}</label>
-        </trigger>
         <trigger ref="Start_Line">
           <label>{Start_Line}</label>
         </trigger>

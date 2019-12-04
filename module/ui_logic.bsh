@@ -323,12 +323,6 @@ REF_TO_TYPE.put("Control/Search/Entity_List", "list");
 REF_TO_TYPE.put("Control/Autonumbering/Next_Square_ID", "input");
 REF_TO_TYPE.put("Square/General/Square_ID", "input");
 REF_TO_TYPE.put("Square/General/Width", "input");
-REF_TO_TYPE.put("Square/General/Latitude", "input");
-REF_TO_TYPE.put("Square/General/Longitude", "input");
-REF_TO_TYPE.put("Square/General/Northing", "input");
-REF_TO_TYPE.put("Square/General/Easting", "input");
-REF_TO_TYPE.put("Square/General/Accuracy", "input");
-REF_TO_TYPE.put("Square/General/Take_From_GPS_1", "button");
 REF_TO_TYPE.put("Square/General/Start_Line", "button");
 REF_TO_TYPE.put("Square/General/Northing1", "input");
 REF_TO_TYPE.put("Square/General/Easting1", "input");
@@ -343,11 +337,6 @@ REF_TO_TYPE.put("Square/General", "tab");
 
 DATA_REFS.add("Square/General/Square_ID");
 DATA_REFS.add("Square/General/Width");
-DATA_REFS.add("Square/General/Latitude");
-DATA_REFS.add("Square/General/Longitude");
-DATA_REFS.add("Square/General/Northing");
-DATA_REFS.add("Square/General/Easting");
-DATA_REFS.add("Square/General/Accuracy");
 DATA_REFS.add("Square/General/Northing1");
 DATA_REFS.add("Square/General/Easting1");
 DATA_REFS.add("Square/General/Northing2");
@@ -3119,17 +3108,6 @@ void validateControl() {
   String validationMessage = validateFields(f, "PLAINTEXT");
   showWarning("{validation_results}", validationMessage);
 }
-void validateSquare() {
-  List f = new ArrayList(); // Fields to be validated
-  f.add(fieldPair("Square/General/Latitude", "{Latitude}"));
-  f.add(fieldPair("Square/General/Longitude", "{Longitude}"));
-  f.add(fieldPair("Square/General/Northing", "{Northing}"));
-  f.add(fieldPair("Square/General/Easting", "{Easting}"));
-  f.add(fieldPair("Square/General/Accuracy", "{Accuracy}"));
-
-  String validationMessage = validateFields(f, "PLAINTEXT");
-  showWarning("{validation_results}", validationMessage);
-}
 
 
 /******************************************************************************/
@@ -3339,7 +3317,6 @@ void addNavigationButtons(String tabgroup) {
   removeNavigationButtons();
   List tabgroupsToValidate = new ArrayList();
   tabgroupsToValidate.add("Control");
-  tabgroupsToValidate.add("Square");
   addNavigationButton("new", new ActionButtonCallback() {
     actionOnLabel() {
       "{New}";
@@ -3784,11 +3761,11 @@ void loadSquareFrom(String uuid) {
 /******************************************************************************/
 /*                          TAKE FROM GPS BUTTON(S)                           */
 /******************************************************************************/
-addOnEvent("Square/General/Take_From_GPS_1", "click", "takePoint(\"Square\")");
+
 
 Map getTakeFromGpsMappings() {
   Map tabgroupToTabRef = new HashMap();
-  tabgroupToTabRef.put("Square", "Square/General");
+  
   return tabgroupToTabRef;
 }
 
