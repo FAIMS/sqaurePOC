@@ -40,15 +40,23 @@
 
 <logic><![CDATA[
 
+String easting1 = "";
+String northing1 = "";
+String easting2 = "";
+String northing2 = "";
+
 addOnEvent("Square/General/Start_Line", "click", "buttonPress1()");
 
 void buttonPress1(){
 	Object projPosition = getGPSPositionProjected();
-	Double northing1 = projPosition.getLatitude();
-	Double easting1 = projPosition.getLongitude();
+	Double northing = projPosition.getLatitude();
+	Double easting = projPosition.getLongitude();
 	
-	String sNorthing1    = "" + northing1;
-	String sEasting1     = "" + easting1;
+	String sNorthing1    = "" + northing;
+	String sEasting1     = "" + easting;
+
+	easting1 = sEasting1;
+	northing1 = sNorthing1;
 	
 	Map tabgroupToTabRef = getTakeFromGpsMappings();
 	setFieldValue("Square/General/Easting1",   sEasting1);
@@ -59,15 +67,30 @@ addOnEvent("Square/General/Stop_Line", "click", "buttonPress2()");
 
 void buttonPress2(){
 	Object projPosition = getGPSPositionProjected();
-	Double northing2 = projPosition.getLatitude();
-	Double easting2 = projPosition.getLongitude();
+	Double northing = projPosition.getLatitude();
+	Double easting = projPosition.getLongitude();
 	
-	String sNorthing2    = "" + northing2;
-	String sEasting2     = "" + easting2;
+	String sNorthing2    = "" + northing;
+	String sEasting2     = "" + easting;
+
+	easting2 = sEasting2;
+	northing2 = sNorthing2;
 	
 	setFieldValue("Square/General/Easting2",   sEasting2);
 	setFieldValue("Square/General/Northing2",  sNorthing2);
 }
+
+
+String query = "INSERT INTO ArchEntity (UUID, UserID, AEntTypeID, ParentTimestamp, GeoSpatialColumnType) "
+					"SELECT uuid, +"selectUser()"+, aenttypeid, aenttimestamp, select transform(GUnion(SingleSidedBuffer("
+						"MakeLine("
+							"MakePoint(" + easting1 + "," + northing1 ","+getModuleSrid()+"), "
+							"MakePoint(" + easting2 + "," + northing2 ","+getModuleSrid()+")), "+getFieldValue("Square/General/Width" + ", 0) , "
+						"SingleSidedBuffer( "
+							"MakeLine("
+								"MakePoint(" + easting1 + "," + northing1 ","+getModuleSrid()+"), "
+								"MakePoint(" + easting2 + "," + northing2 ","+getModuleSrid()+"))," +getFieldValue("Square/General/Width") +" , 1)), 3875);";
+
 
 
 ]]></logic>
